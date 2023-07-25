@@ -1,4 +1,41 @@
-<form action="" method="POST"> {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="signup">
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/signup.css">
+    <title>Document</title>
+</head>
+<body bgcolor="#8B8B8B">
+    <div class="logo"></div>
+    <div class="circle"></div>
+    <div class="shape">
+        <form action="" method="POST"> {% csrf_token %}
+            <p>
+                <div class="email-address-font">Email address</div>
+                <input class="new-email-address" type="email" name="{{ form.username.html_name }}" maxlength="150" autocapitalize="none" autocomplete="{{ form.username.html_name }}" autofocus="" required="" id="{{ form.username.id_for_label }}">
+            </p>
+            <p>
+                <div class="password-font">Password</div>
+                <input  class="new-password" type="password" name="{{ form.password1.html_name }}" autocomplete="new-password" required="" id="{{ form.password1.id_for_label }}">
+            </p>
+            <p>
+                <div class="again-password-font">Password (confirmation)</div>
+                <input class="again-password" type="password" name="{{ form.password2.html_name }}" autocomplete="new-password" required="" id="{{ form.password2.id_for_label }}">
+            </p>
+            <div class="error-massage">
+                {% if form.errors %}
+                    {% for key,value in form.errors.items %}
+                        {{ value }}
+                    {% endfor %}
+                {% endif %}
+            </div>
+            
+            <input class="signup-button" type="submit" value="Sign up">
+        </form>
+        <div >
+            <a class="login" href="{% url 'login' %}">Log in</a>
+        </div>
+    </div>
+</body>
+</html>
