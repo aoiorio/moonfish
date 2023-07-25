@@ -1,0 +1,164 @@
+.background {
+    background-color: #c2c2c2;
+}
+
+.hexagon {
+    background-image: url('./photos/hexagon.png');
+    width: auto;
+    height: 650px;
+    background-repeat: no-repeat;
+    background-position: center;
+    /* background-attachment: fixed; */
+    background-size: 530px;
+}
+
+.email-address {
+    border-radius: 20px;
+    border: none;
+    background-color: #8D919C;
+    width: 400px;
+    height: 40px;
+    padding: 10px;
+    font-size: 20px;
+    font-family: sans-serif;
+    position: absolute;
+    left: 400px;
+    top: 190px;
+    box-shadow: 3px 5px 5px rgb(157, 155, 155);
+}
+
+.password {
+    border-radius: 20px;
+    width: 400px;
+    height: 40px;
+    padding: 10px;
+    border: none;
+    background-color: #6C7079;
+    font-size: 20px;
+    font-family: sans-serif;
+    position: absolute;
+    left: 540px;
+    bottom: 330px;
+    box-shadow: 3px 5px 5px rgb(157, 155, 155);
+}
+
+.email-address-font {
+    font-size: 15px;
+    font-family: sans-serif;
+    position: absolute;
+    left: 410px;
+    top: 170px;
+}
+
+.password-font {
+    font-size: 15px;
+    font-family: sans-serif;
+    position: absolute;
+    left: 550px;
+    bottom: 395px;
+}
+
+.div {
+    margin: 30px;
+}
+
+.login-button {
+    width: 370px;
+    min-height: 65px;
+    background-color: #424451;
+    font-size: 20px;
+    font-family: sans-serif;
+    color: aliceblue;
+    border: none;
+    border-radius: 20px;
+    position: absolute;
+    left: 500px;
+    bottom: 150px;
+}
+
+a {
+    text-decoration: none;
+    position: absolute;
+    left: 680px;
+    bottom: 140px;
+    font-family: sans-serif;
+}
+.signup {
+    width: 100px;
+    font-size: 15px;
+    font-family: sans-serif;
+    color: #30333E;
+    text-align: center;
+    box-sizing: border-box;
+    position: absolute;
+    left: 660px;
+    /* padding: 15px; */
+}
+
+/* .signup::after {
+    color: #000;
+    width: 100px;
+    height: auto;
+    position: absolute;
+    left: 740px;
+    bottom: 147px;
+    width: 16px;
+    height: 1px;
+    background-color: currentColor;
+} */
+
+.signup::after {
+    content: '';
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    border-top: solid 1px currentColor;
+    border-right: solid 1px currentColor;
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+    position: absolute;
+    left: 90px;
+    bottom: 4px;
+    color: #30333E;
+}
+
+.circle {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    background-color: #6D3D3D;
+    position: absolute;
+    right: 550px;
+    top: 50px;
+}
+
+::placeholder {
+    color: rgb(211, 215, 219);
+}
+
+.logo {
+    background-image: url('./photos/moonfish-logo-finish.png');
+    width: 150px;
+    height: 30px;
+    position: absolute;
+    top: 0px;
+    background-repeat: no-repeat;
+    background-size: 130px;
+    /* background-attachment: fixed; */
+    margin: 10px;
+
+}
+
+.error-massage {
+    font-family: sans-serif;
+    position: absolute;
+    bottom: 20px;
+    font-size: 15px;
+}
+
+.all_group {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: auto;
+}
