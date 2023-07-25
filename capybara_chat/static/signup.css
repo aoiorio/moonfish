@@ -1,0 +1,149 @@
+.shape {
+    background-image: url(./photos/deep-shape.png);
+    width: auto;
+    height: 680px;
+    background-repeat: no-repeat;
+    background-position: center;
+    /* background-attachment: fixed; */
+    background-size: 530px;
+}
+.logo {
+    background-image: url('./photos/moonfish-logo-finish.png');
+    width: 150px;
+    height: 30px;
+    position: absolute;
+    top: 0px;
+    background-repeat: no-repeat;
+    background-size: 130px;
+    /* background-attachment: fixed; */
+    margin: 10px;
+
+}
+.new-email-address {
+    border-radius: 20px;
+    border: none;
+    background-color: #505255;
+    width: 400px;
+    height: 40px;
+    padding: 10px;
+    font-size: 20px;
+    font-family: sans-serif;
+    position: absolute;
+    left: 400px;
+    top: 190px;
+    box-shadow: 3px 5px 5px rgb(108, 108, 108);
+}
+
+.email-address-font {
+    font-size: 15px;
+    font-family: sans-serif;
+    position: absolute;
+    left: 410px;
+    top: 170px;
+}
+
+.new-password {
+    border-radius: 20px;
+    width: 350px;
+    height: 40px;
+    padding: 10px;
+    border: none;
+    background-color: #393F4E;
+    font-size: 20px;
+    font-family: sans-serif;
+    position: absolute;
+    left: 320px;
+    bottom: 330px;
+    box-shadow: 3px 5px 5px rgb(108, 108, 108);
+}
+
+.again-password {
+    border-radius: 20px;
+    width: 350px;
+    height: 40px;
+    padding: 10px;
+    border: none;
+    background-color: #4F5668;
+    font-size: 20px;
+    font-family: sans-serif;
+    position: absolute;
+    left: 740px;
+    bottom: 330px;
+    box-shadow: 3px 5px 5px rgb(108, 108, 108);
+}
+
+.password-font {
+    font-size: 15px;
+    font-family: sans-serif;
+    position: absolute;
+    left: 330px;
+    bottom: 395px;
+}
+
+.again-password-font {
+    font-size: 15px;
+    font-family: sans-serif;
+    position: absolute;
+    right: 525px;
+    bottom: 395px;
+}
+
+.signup-button {
+    width: 370px;
+    min-height: 65px;
+    background-color: #424451;
+    font-size: 20px;
+    font-family: sans-serif;
+    color: rgb(219, 222, 225);
+    border: none;
+    border-radius: 20px;
+    position: absolute;
+    right: 530px;
+    bottom: 180px;
+}
+
+.error-massage {
+    font-family: sans-serif;
+    position: absolute;
+    bottom: 20px;
+    font-size: 15px;
+}
+
+.circle {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    background-color: #5A4343;
+    position: absolute;
+    right: 550px;
+    top: 50px;
+}
+
+.login {
+    width: 100px;
+    font-size: 15px;
+    font-family: sans-serif;
+    color: #30333E;
+    text-align: center;
+    box-sizing: border-box;
+    position: absolute;
+    left: 660px;
+    bottom: 140px;
+    text-decoration: none;
+    /* padding: 15px; */
+}
+
+.login::after {
+    content: '';
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    border-top: solid 1px currentColor;
+    border-right: solid 1px currentColor;
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+    position: absolute;
+    left: 90px;
+    bottom: 4px;
+    color: #30333E;
+}
