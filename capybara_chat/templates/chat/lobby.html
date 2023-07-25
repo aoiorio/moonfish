@@ -10,7 +10,7 @@
     {% if user.is_authenticated %}
         <div>
             <!-- <button class="user-name"></button> -->
-            <button class="name-shape">User: {{ user.username}}</div>
+            <button class="name-shape">{{ user.username }}</div>
         </div>
     {% else %}
         <a href="{% url 'login' %}">Login</a></li>
