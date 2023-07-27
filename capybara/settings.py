@@ -44,7 +44,7 @@ INSTALLED_APPS = [
 ]
 
 ASGI_APPLICATION = 'capybara.asgi.application'
-LOGIN_REDIRECT_URL = 'lobby'
+LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'login'
 
 CHANNEL_LAYERS = {
