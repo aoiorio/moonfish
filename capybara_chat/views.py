@@ -9,10 +9,14 @@ class SignupPage(generic.CreateView):
     success_url = reverse_lazy('login')
     template_name = 'registration/signup.html'
 
-class LobbyPage(LoginRequiredMixin, generic.TemplateView):
-    template_name = 'chat/lobby.html'
-    # success_url = reverse_lazy('lobby')
-    login_url = 'login' # ここのlogin_urlを書かないと、どのurlに飛んだらいいのかがわからなくなるので記述する(エラーになる)
+# class LobbyPage(LoginRequiredMixin, generic.TemplateView):
+#     template_name = 'chat/lobby.html'
+#     # success_url = reverse_lazy('lobby')
+#     login_url = 'login' # ここのlogin_urlを書かないと、どのurlに飛んだらいいのかがわからなくなるので記述する(エラーになる)
 
 # def lobby(request):
 #     return render(request, 'chat/lobby.html') #chat/lobby.htmlのパスが追加されている
+
+class HomePage(LoginRequiredMixin, generic.TemplateView):
+    template_name = 'home/home.html'
+    login_url = 'login'
