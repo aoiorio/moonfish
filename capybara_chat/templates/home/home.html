@@ -3,14 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="static/signup.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="static/home.css">
     <title>Document</title>
 </head>
-<body>
-    <h1>hi there</h1>
-    <form action="{% url 'logout' %}">
-        <button class="signup-button">Log out</button>
-    </form>
+<body bgcolor="#D3D3D3">
+
+    <div class="background_shape"></div>
+    <div class="logo"></div>
+    <a class="logout" href="{% url 'capybara_chat:logout' %}">Log out</a>
+
+
+        <form id="apiform" method="POST" action=""> {% csrf_token %}
+            <input class="recipe_search" placeholder="search recipe" type="search" id="query" name="query">
+            <button class="search_button" type="submit">Search</button>
+        </form>
+    </div>
+
+    {% if results %}
+        {% for item in results %}
+        <div>
+            <img src="{{ item.image }}" style="width:auto; height: 125px">
+        </div>
+        <div>
+            <b>{{ item.title }}</b>
+        </div>
+        {% if forloop.first %}
+            {% for url in recipe_urls %}
+                <div>
+                    <a href="{{ url }}">go to the recipe</a>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endfor %}
+    {% else %}
+        <div class="container">
+            <div class="recommend_recipes">Recommend Recipes</div>
+            <div class="row row-cols-3">
+            {% for item in random_recipes %}
+                <div class="col">
+                    <div class="recipe-card">
+                        <img src="{{ item.image }}" alt="">
+                        <div class="title">{{ item.title }}</div>
+                        <button onclick="location.href='{{ item.sourceUrl }}'" class="block go-to-recipe arrow_right">Recipe</button>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+<!-- </div> -->
+    
+
 </body>
 </html>
-
