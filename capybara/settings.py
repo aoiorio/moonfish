@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'daphne', #pipでインストールしたchannels を追加、しかし、ASGIでレスポンスされなかったのでDaphneを使い待った
+    # 'daphne', #pipでインストールしたchannels を追加、しかし、ASGIでレスポンスされなかったのでDaphneを使い待った
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -44,8 +44,10 @@ INSTALLED_APPS = [
 ]
 
 ASGI_APPLICATION = 'capybara.asgi.application'
-LOGIN_REDIRECT_URL = 'home'
-LOGOUT_REDIRECT_URL = 'login'
+LOGIN_REDIRECT_URL = 'capybara_chat:home'
+LOGOUT_REDIRECT_URL = 'capybara_chat:login'
+
+
 
 CHANNEL_LAYERS = {
     'default':{
@@ -131,6 +133,8 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATIC_ROOT = ('static')
+
+API_KEY = '22465f2f81d44c01b2bd3cd02f97ee77'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
