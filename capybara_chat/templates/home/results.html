@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>"{{ query }}"</div>
+    {% for item in results %}
+            <div>
+                <img src="{{ item.image }}" style="width:auto; height: 125px">
+            </div>
+            <div>
+                <b>{{ item.title }}</b>
+            </div>
+            {% if forloop.first %}
+                {% for url in recipe_urls %}
+                    <div>
+                        <a href="{{ url }}">go to the recipe</a>
+                    </div>
+                {% endfor %}
+            {% endif %}
+    {% endfor %}
+</body>
+</html>
