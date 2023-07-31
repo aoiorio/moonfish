@@ -13,8 +13,9 @@
 ### 🍣 How to use this app
 1. Clone the moonfish repository.
 2. Open it.
-3. please type this on your terminal.
+3. please type below the sentence on your terminal.
 ```
-python3 manage.py runserver
+$ pip3 install django
+$ python3 manage.py runserver
 ```
 4. The world is your oyster!
