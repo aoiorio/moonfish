@@ -8,4 +8,4 @@
     - So, you can get recipes only 150 times a day.
     - if you want to get more recipes, you have to create your account on spoonacular api web site.
 - some images are not able to show without space.
-- It don't
+- It don't support 
