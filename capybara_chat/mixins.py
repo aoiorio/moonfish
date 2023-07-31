@@ -29,7 +29,7 @@ class APIMixin:
 
     def get_data(self):
 
-        url = f"https://api.spoonacular.com/recipes/complexSearch?query={self.query}&number=15&apiKey={settings.API_KEY}"
+        url = f"https://api.spoonacular.com/recipes/complexSearch?query={self.query}&addRecipeInformation=true&number=3&apiKey={settings.API_KEY}"
 
         r = requests.get(url)
         if r.status_code == 200:
@@ -40,13 +40,14 @@ class APIMixin:
         else:
             return None
 
-def get_recipe_detail(self):
-    detail_url = f"https://api.spoonacular.com/recipes/{self}/information?&apiKey={settings.API_KEY}"
-    detail_r = requests.get(detail_url)
-    # try:
-    return detail_r.json()["sourceUrl"]
-    # except:
-    #     return None
+# spoonacular APIのポイントの消費が激しいのでコメントアウトしました（新しい方法を見つけました！）
+# def get_recipe_detail(self):
+#     detail_url = f"https://api.spoonacular.com/recipes/{self}/information?includeNutrition=false&apiKey={settings.API_KEY}"
+#     detail_r = requests.get(detail_url)
+#     # try:
+#     return detail_r.json()["sourceUrl"]
+#     # except:
+#     #     return None
 
 def random_recipes(self):
     random_recipes_url = f"https://api.spoonacular.com/recipes/random?number={self}&apiKey={settings.API_KEY}"
