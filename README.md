@@ -13,7 +13,7 @@
 ### 🍣 How to use this app
 1. Clone the moonfish repository.
 2. Open it.
-3. please type this
+3. please type this on your terminal
 ```
 python3 manage.py runserver
 ```
