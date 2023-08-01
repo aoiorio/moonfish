@@ -5,12 +5,6 @@ from urllib.parse import urlencode
 import requests
 import json
 
-def FormErrors(*args):
-    message = ""
-    for f in args:
-        if f.errors:
-            message = f.errors.as_text()
-    return message
 
 # used to append url parameters when redirecting users.
 def RedirectParams(**kwargs):
