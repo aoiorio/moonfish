@@ -39,12 +39,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'capybara_chat', #ここ重要!!アプリをインストールするから。(登録する)
+    'moonfish_recipe', #ここ重要!!アプリをインストールするから。(登録する)
 ]
 
-ASGI_APPLICATION = 'capybara.asgi.application'
-LOGIN_REDIRECT_URL = 'capybara_chat:home'
-LOGOUT_REDIRECT_URL = 'capybara:login'
+ASGI_APPLICATION = 'moonfish.asgi.application'
+LOGIN_REDIRECT_URL = 'moonfish_recipe:home'
+LOGOUT_REDIRECT_URL = 'moonfish_recipe:login'
 
 
 
@@ -64,7 +64,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'capybara.urls'
+ROOT_URLCONF = 'moonfish.urls'
 
 TEMPLATES = [
     {
@@ -82,7 +82,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'capybara.wsgi.application'
+WSGI_APPLICATION = 'moonfish.wsgi.application'
 
 
 # Database

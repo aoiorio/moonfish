@@ -13,11 +13,11 @@ from .mixins import (
 )
 class SignupPage(generic.CreateView):
     form_class = UserCreationForm
-    success_url = reverse_lazy('capybara_chat:login')
+    success_url = reverse_lazy('moonfish_recipe:login')
     template_name = 'registration/signup.html'
 
 
-@login_required(login_url='capybara_chat:login')
+@login_required(login_url='moonfish_recipe:login')
 def home(request):
     # checking if the method is POST
     if request.method == 'POST':

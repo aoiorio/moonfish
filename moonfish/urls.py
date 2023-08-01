@@ -1,5 +1,5 @@
 """
-URL configuration for capybara project.
+URL configuration for moonfish project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.2/topics/http/urls/
@@ -22,6 +22,6 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('capybara_chat.urls')), # capybara_chatのurlsを読み込む
+    path('', include('moonfish_recipe.urls')), # moonfish_recipeのurlsを読み込む
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 

@@ -11,10 +11,7 @@
 
     <div class="background_shape"></div>
     <div class="logo"></div>
-    <button class="logout-button" onclick="location.href='{% url 'capybara_chat:logout' %}'">Log out</button>
-    <!-- <div class="logout">
-        <a href="{% url 'capybara_chat:logout' %}" class="">Log out</a>
-    </div> -->
+    <button class="logout-button" onclick="location.href='{% url 'moonfish_recipe:logout' %}'">Log out</button>
 
         <form id="apiform" method="POST" action=""> {% csrf_token %}
             <input class="recipe_search" placeholder="search recipe" type="search" id="query" name="query">
@@ -32,11 +29,6 @@
                                 <img src="{{ item.image }}" alt="">
                                 <div class="title">{{ item.title }}</div>
                                 <button onclick="location.href='{{ item.sourceUrl }}'" class="block go-to-recipe arrow_right">Recipe</button>
-                                <!-- {% if forloop.first %}
-                                    {% for url in recipe_urls %}
-                                            <button onclick="location.href='{{ url }}'" class="block go-to-recipe arrow_right">Recipe</button>
-                                    {% endfor %}
-                                {% endif %} -->
                             </div>
                         </div>
                     {% endfor %}
@@ -65,7 +57,6 @@
         </div>
     {% endif %}
     {% endif %}
-<!-- </div> -->
 
 </body>
 </html>
