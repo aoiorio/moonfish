@@ -83,26 +83,24 @@ body{
 }
 
 .recipe-card .go-to-recipe {
+    cursor: pointer;
+    transition: .2s cubic-bezier(0.45, 0, 0.55, 1);
+}
+
+.recipe-card .go-to-recipe {
     border-radius: 30px;
-    border: none;
+    border: 2px solid #A4A4A4;
     width: 130px;
     height: 50px;
     font-size: 16px;
-
     font-family: sans-serif;
     font-weight: bold;
     background-color: #A4A4A4;
 }
-.recipe-card .go-to-recipe:hover {
-    border-radius: 30px;
-    border: none;
-    width: 130px;
-    height: 50px;
-    font-size: 16px;
 
-    font-family: sans-serif;
-    font-weight: bold;
-    background-color: #cecccc;
+.recipe-card .go-to-recipe:hover {
+    
+    background-color: #D3D3D3;
 }
 
 .block{
@@ -170,7 +168,7 @@ body{
     position: absolute;
     top: 20px;
     right: 15px;
-    width: 110px;
+    width: 100px;
     height: 30px;
     font-size: 15px;
 }
