@@ -42,7 +42,7 @@
                     {% endfor %}
                 </div>
         </div>
-    {% elif recommend_recipes %}
+    {% else %}
         <div class="container">
             <div class="recommend_recipes">Recommend Recipes</div>
             <div class="row row-cols-3">
@@ -51,18 +51,19 @@
                     <div class="recipe-card">
                         <img src="{{ item.image }}" alt="">
                         <div class="title">{{ item.title }}</div>
-                        <button onclick="location.href='{{ item.sourceUrl }}'" class="block go-to-recipe arrow_right">Recipe</button>
+                        <button onclick="location.href='{{ item.sourceUrl }}'" class="go-to-recipe arrow_right block">Recipe</button>
                     </div>
                 </div>
             {% endfor %}
             </div>
         </div>
-    {% else %}
-    <div class="limit-api-key">
-        <div class="image"></div>
-        <div class="message">Your daily points limit of 150 has been reached.</div>
-        <a href="https://spoonacular.com/food-api/pricing" target="_blank">You want to upgrade it?</a>
-    </div>
+    {% if not recommend_recipes and results %}
+        <div class="limit-api-key">
+            <div class="image"></div>
+            <div class="message">Your daily points limit of 150 has been reached.</div>
+            <a href="https://spoonacular.com/food-api/pricing" target="_blank">Are you hungry?</a>
+        </div>
+    {% endif %}
     {% endif %}
 <!-- </div> -->
 
