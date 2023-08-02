@@ -23,7 +23,7 @@ class APIMixin:
 
     def get_data(self):
 
-        url = f"https://api.spoonacular.com/recipes/complexSearch?query={self.query}&addRecipeInformation=true&number=3&apiKey={settings.API_KEY}"
+        url = f"https://api.spoonacular.com/recipes/complexSearch?query={self.query}&addRecipeInformation=true&number=10&apiKey={settings.API_KEY}"
 
         r = requests.get(url)
         if r.status_code == 200:
