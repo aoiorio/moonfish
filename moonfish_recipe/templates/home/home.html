@@ -14,7 +14,7 @@
     <button class="logout-button" onclick="location.href='{% url 'moonfish_recipe:logout' %}'">Log out</button>
 
         <form id="apiform" method="POST" action=""> {% csrf_token %}
-            <input class="recipe_search" placeholder="search recipe" type="search" id="query" name="query">
+            <input class="recipe_search" placeholder="search recipe" type="search" id="query" name="query" required="query">
             <button class="search_button" type="submit">Search</button>
         </form>
     </div>
@@ -34,6 +34,12 @@
                     {% endfor %}
                 </div>
         </div>
+    {% elif not recommend_recipes and results %}
+        <div class="limit-api-key">
+            <div class="image"></div>
+            <div class="message">Your daily points limit of 150 has been reached.</div>
+            <a href="https://spoonacular.com/food-api/pricing" target="_blank">Are you hungry?</a>
+        </div>
     {% else %}
         <div class="container">
             <div class="recommend_recipes">Recommend Recipes</div>
@@ -49,13 +55,6 @@
             {% endfor %}
             </div>
         </div>
-    {% if not recommend_recipes and results %}
-        <div class="limit-api-key">
-            <div class="image"></div>
-            <div class="message">Your daily points limit of 150 has been reached.</div>
-            <a href="https://spoonacular.com/food-api/pricing" target="_blank">Are you hungry?</a>
-        </div>
-    {% endif %}
     {% endif %}
 
 </body>
