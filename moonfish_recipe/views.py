@@ -30,7 +30,13 @@ def home(request):
                     "results": results,
                     "query": query,
                 }
-                return render(request, "home/home.html", context) # POSTされて、resultsの中身があったら、contextでresultsとqueryを返す
+                if context["results"] == []:
+                    recommend_recipes = {
+                    "random_recipes": random_recipes(21) # 21個のランダムなレシピを取得
+                    }
+                    return render(request, "home/home.html", recommend_recipes)
+                else:
+                    return render(request, "home/home.html", context) # POSTされて、resultsの中身があったら、contextでresultsとqueryを返す
     else:
         # create recommend_recipes dictionary
         recommend_recipes = {
