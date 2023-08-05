@@ -28,7 +28,7 @@
                             <div class="recipe-card">
                                 <img src="{{ item.image }}" alt="">
                                 <div class="title">{{ item.title }}</div>
-                                <button onclick="location.href='{{ item.sourceUrl }}'" class="block go-to-recipe arrow_right">Recipe</button>
+                                <button onclick="window.open('{{ item.sourceUrl }}', '_blank')" class="block go-to-recipe arrow_right">Recipe</button>
                             </div>
                         </div>
                     {% endfor %}
@@ -49,7 +49,7 @@
                     <div class="recipe-card">
                         <img src="{{ item.image }}" alt="">
                         <div class="title">{{ item.title }}</div>
-                        <button onclick="location.href='{{ item.sourceUrl }}'" class="go-to-recipe arrow_right block">Recipe</button>
+                        <button onclick="window.open('{{ item.sourceUrl }}', '_blank')" class="go-to-recipe arrow_right block">Recipe</button>
                     </div>
                 </div>
             {% endfor %}
