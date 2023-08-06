@@ -15,7 +15,7 @@
 1. Clone the moonfish repository.
 2. Open it.
 3. Then you should check where you are, you have to stay **~/moonfish**
-4. please type below the sentence on your terminal.
+4. please type below the command on your terminal.
 ```
 $ pip3 install django
 $ python3 manage.py runserver
