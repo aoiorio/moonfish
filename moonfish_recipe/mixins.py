@@ -44,7 +44,7 @@ class APIMixin:
 #     #     return None
 
 def random_recipes(self):
-    random_recipes_url = f"https://api.spoonacular.com/recipes/random?number={self}&apiKey={settings.API_KEY}"
+    random_recipes_url = f"https://api.spoonacular.com/recipes/random?number={self}&apiKey={settings.API_KEY}" # ランダムなレシピを取得する
     random_recipes_r = requests.get(random_recipes_url)
 
     if random_recipes_r.status_code == 200:
