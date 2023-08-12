@@ -20,4 +20,4 @@
 $ pip3 install django
 $ python3 manage.py runserver
 ```
-The world is your oyster!
+#The world is your oyster!
