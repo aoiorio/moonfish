@@ -12,7 +12,10 @@
     <div class="background_shape"></div>
     <div class="logo"></div>
     <button class="logout-button" onclick="location.href='{% url 'moonfish_recipe:logout' %}'">Log out</button>
-
+    <a href="{% url 'moonfish_recipe:favorite' %}">
+        <div class="favorite-icon"></div>
+    </a>
+    
         <form id="apiform" method="POST" action=""> {% csrf_token %}
             <input class="recipe_search" placeholder="search recipe" type="search" id="query" name="query" required="query">
             <button class="search_button" type="submit">Search</button>
@@ -47,6 +50,7 @@
             {% for item in random_recipes %}
                 <div class="col">
                     <div class="recipe-card">
+                        <div class="favorite-icon-on-recipe"></div>
                         <img src="{{ item.image }}" alt="">
                         <div class="title">{{ item.title }}</div>
                         <button onclick="window.open('{{ item.sourceUrl }}', '_blank')" class="go-to-recipe arrow_right block">Recipe</button>
@@ -56,6 +60,6 @@
             </div>
         </div>
     {% endif %}
-
+    
 </body>
 </html>

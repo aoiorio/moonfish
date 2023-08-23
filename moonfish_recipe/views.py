@@ -30,13 +30,7 @@ def home(request):
                     "results": results,
                     "query": query,
                 }
-                if context["results"] == []:
-                    recommend_recipes = {
-                    "random_recipes": random_recipes(21) # 21個のランダムなレシピを取得
-                    }
-                    return render(request, "home/home.html", recommend_recipes)
-                else:
-                    return render(request, "home/home.html", context) # POSTされて、resultsの中身があったら、contextでresultsとqueryを返す
+                return render(request, "home/home.html", context) # POSTされて、resultsの中身があったら、contextでresultsとqueryを返す
     else:
         # create recommend_recipes dictionary
         recommend_recipes = {
@@ -44,3 +38,8 @@ def home(request):
         }
         return render(request, "home/home.html", recommend_recipes) # POSTされなかったら、recommend_recipesを返す
     return render(request, "home/home.html") # これはエラー解消のために書いたもので特に意味はないと思う（絶対にreturnが必要なため）
+
+# favorite page
+@login_required(login_url='moonfish_recipe:login')
+def favorite_page(request):
+    return render(request, "favorite/favorite.html")
