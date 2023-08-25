@@ -1,10 +1,13 @@
 from django.shortcuts import render, reverse, redirect
 import requests
 from django.views import generic
+from django.views.generic import ListView
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
+# modelsからのimport
+from .models import Food
 
 from .mixins import (
         RedirectParams,
@@ -40,6 +43,8 @@ def home(request):
     return render(request, "home/home.html") # これはエラー解消のために書いたもので特に意味はないと思う（絶対にreturnが必要なため）
 
 # favorite page
-@login_required(login_url='moonfish_recipe:login')
-def favorite_page(request):
-    return render(request, "favorite/favorite.html")
+# @login_required(login_url='moonfish_recipe:login')
+class FavoritePage(ListView):
+    queryset = Food.objects.filter(is_favorite=True)
+    template_name = 'favorite/favorite.html'
+    context_object_name = "favorite_recipes"
