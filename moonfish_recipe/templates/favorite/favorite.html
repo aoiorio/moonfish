@@ -8,5 +8,9 @@
 <body>
     <h1 class="developing">Developing favorite page now...</h1>
     <h2 class="developing">Please wait</h2>
+    {% for favorite_recipe in favorite_recipes %}
+        <h1>{{ favorite_recipe.title }}</h1>
+        <h2>{{ favorite_recipe.is_favorite }}</h2>
+    {% endfor %}
 </body>
 </html>

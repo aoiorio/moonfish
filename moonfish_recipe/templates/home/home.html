@@ -15,7 +15,7 @@
     <a href="{% url 'moonfish_recipe:favorite' %}">
         <div class="favorite-icon"></div>
     </a>
-    
+
         <form id="apiform" method="POST" action=""> {% csrf_token %}
             <input class="recipe_search" placeholder="search recipe" type="search" id="query" name="query" required="query">
             <button class="search_button" type="submit">Search</button>
@@ -60,6 +60,6 @@
             </div>
         </div>
     {% endif %}
-    
+
 </body>
 </html>
