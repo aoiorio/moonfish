@@ -60,5 +60,4 @@ def random_recipes(self):
             else:
                 foods_obj = Food(title=recipe["title"], image=recipe["image"], recipe_url=recipe["sourceUrl"])
                 foods_obj.save()
-        # Foods.objects.delete().values_list("title").distinct()
         return random_recipes_r.json()["recipes"]

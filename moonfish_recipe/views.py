@@ -43,7 +43,6 @@ def home(request):
     return render(request, "home/home.html") # これはエラー解消のために書いたもので特に意味はないと思う（絶対にreturnが必要なため）
 
 # favorite page
-# @login_required(login_url='moonfish_recipe:login')
 class FavoritePage(ListView):
     queryset = Food.objects.filter(is_favorite=True)
     template_name = 'favorite/favorite.html'
