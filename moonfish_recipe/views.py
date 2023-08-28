@@ -44,6 +44,6 @@ def home(request):
 
 # favorite page
 class FavoritePage(ListView):
-    queryset = Food.objects.filter(is_favorite=True)
+    queryset = Food.objects.filter(is_favorite=True) # favorite itemを表示させるため、querysetでis_favorite=Trueに設定したデータを返す
     template_name = 'favorite/favorite.html'
     context_object_name = "favorite_recipes"
