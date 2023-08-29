@@ -34,6 +34,12 @@
                                 <button onclick="window.open('{{ item.sourceUrl }}', '_blank')" class="block go-to-recipe arrow_right">Recipe</button>
                             </div>
                         </div>
+                    {% empty %}
+                        <div class="no-recipe">
+                            <div class="message-404">404</div>
+                            <div class="message">We have no idea of {{ query }}</div>
+                            <div class="image"></div>
+                        </div>
                     {% endfor %}
                 </div>
         </div>
@@ -44,6 +50,7 @@
             <a href="https://spoonacular.com/food-api/pricing" target="_blank">Are you hungry?</a>
         </div>
     {% else %}
+        {% if random_recipes %}
         <div class="container">
             <div class="recommend_recipes">Recommend Recipes</div>
             <div class="row row-cols-3">
@@ -57,6 +64,13 @@
                     </div>
                 </div>
             {% endfor %}
+        {% else %} <!-- 検索したレシピがなかったらメッセージと恐竜を出す-->
+        <div class="no-recipe">
+            <div class="message-404">404</div>
+            <div class="message">We have no idea</div>
+            <div class="image"></div>
+        </div>
+        {% endif %}
             </div>
         </div>
     {% endif %}
