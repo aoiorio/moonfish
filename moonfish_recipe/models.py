@@ -6,7 +6,7 @@ class Food(models.Model):
     image = models.CharField(max_length=200, verbose_name="Recipe_image_url")
     recipe_url = models.CharField(max_length=300, verbose_name="Recipe_url")
     # is_favorite = models.BooleanField(default=False, verbose_name="Recipe_is_favorite")
-    favorites = models.ManyToManyField(User, related_name="favorites", unique=False)
+    favorites = models.ManyToManyField(User, related_name="favorites", unique=False) # ManyToManyFieldでログインしているユーザーと連携する
 
 
 
