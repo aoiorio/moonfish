@@ -29,6 +29,8 @@
                     {% for item in results %}
                         <div class="col">
                             <div class="recipe-card">
+                                <a href="#"><div class="favorite-icon-on-recipe"></div></a>
+                                <!-- <div class="favorite-icon-on-recipe"></div> -->
                                 <img src="{{ item.image }}" alt="">
                                 <div class="title">{{ item.title }}</div>
                                 <button onclick="window.open('{{ item.sourceUrl }}', '_blank')" class="block go-to-recipe arrow_right">Recipe</button>
@@ -57,14 +59,14 @@
             {% for item in random_recipes %}
                 <div class="col">
                     <div class="recipe-card">
-                        <div class="favorite-icon-on-recipe"></div>
+                        <a href="#"><div class="favorite-icon-on-recipe"></div></a>
                         <img src="{{ item.image }}" alt="">
                         <div class="title">{{ item.title }}</div>
                         <button onclick="window.open('{{ item.sourceUrl }}', '_blank')" class="go-to-recipe arrow_right block">Recipe</button>
                     </div>
                 </div>
             {% endfor %}
-        {% else %} <!-- 検索したレシピがなかったらメッセージと恐竜を出す-->
+        {% else %} <!-- 検索したレシピがなかったら404メッセージと恐竜を出す-->
         <div class="no-recipe">
             <div class="message-404">404</div>
             <div class="message">We have no idea</div>
