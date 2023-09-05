@@ -13,7 +13,7 @@
 
 ### 🍣 How to use this app
 1. Clone the moonfish repository.
-2. Open it.
+2. Open it on Visual Studio Code.
 3. Then you should check where you are, you have to stay **~/moonfish**
 4. please type below the command on your terminal.
 ```
