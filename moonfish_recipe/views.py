@@ -1,11 +1,12 @@
-from django.shortcuts import render, reverse, redirect
+from django.shortcuts import render, reverse, redirect, get_object_or_404, HttpResponseRedirect
 import requests
 from django.views import generic
 from django.views.generic import ListView
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
-from django.contrib.auth.mixins import LoginRequiredMixin
+# Userがログインしているかどうかを見極めるデコレータ
 from django.contrib.auth.decorators import login_required
+
 # modelsからのimport
 from .models import Food
 
@@ -21,7 +22,13 @@ class SignupPage(generic.CreateView):
 
 
 @login_required(login_url='moonfish_recipe:login')
-def home(request):
+def home(request, id):
+    food = get_object_or_404(Food, id=id)
+    is_favorite = False
+
+    if food.favorites.filter(id=request.user.id).exists():
+        is_favorite = True
+
     # checking if the method is POST
     if request.method == 'POST':
         # getting the recipe name from the form input
@@ -32,19 +39,29 @@ def home(request):
                 context = {
                     "results": results,
                     "query": query,
+                    "is_favorite": is_favorite,
                 }
                 return render(request, "home/home.html", context) # POSTされて、resultsの中身があったら、contextでresultsとqueryを返す
     else:
         # create recommend_recipes dictionary
         recommend_recipes = {
-            "random_recipes": random_recipes(21) # 21個のランダムなレシピを取得
+            "random_recipes": random_recipes(21), # 21個のランダムなレシピを取得
+            "is_favorite": is_favorite,
         }
-        return render(request, "home/home.html", recommend_recipes) # POSTされなかったら、recommend_recipesを返す
+        return render(request, "home/home.html", recommend_recipes) # POSTされなかったら、recommend_recipesとis_favoriteを返す
     return render(request, "home/home.html") # これはエラー解消のために書いたもので特に意味はないと思う（絶対にreturnが必要なため）
 
 # favorite page
-class FavoritePage(ListView):
-    # queryset = Food.objects.filter(is_favorite=True) # favorite itemを表示させるため、querysetでis_favorite=Trueに設定したデータを返す
-    template_name = 'favorite/favorite.html'
-    context_object_name = "favorite_recipes"
-    model = Food
+def favorite_page(request, id):
+    recipe = get_object_or_404(Food, id=id) # 値を取得している
+
+    if recipe.favorites.filter(id=request.user.id).exists():
+        recipe.favorites.remove(request.user)
+    else:
+        recipe.favorites.add(request.user)
+    return HttpResponseRedirect(request.META['HTTP_REFERER'])
+
+def favorites_list(request):
+    new = Food.objects.filter(favorites=request.user)
+    return render(request, 'favorite/favorite.html', {'new': new})
+
