@@ -24,25 +24,19 @@
 
     {% if results %}
         <div class="container">
-                <h2>Search for {{ query }}</h2>
-                <div class="row row-cols-3">
-                    {% for item in results %}
-                        <div class="col">
-                            <div class="recipe-card">
-                                <a href="#"><div class="favorite-icon-on-recipe"></div></a>
-                                <img src="{{ item.image }}" alt="">
-                                <div class="title">{{ item.title }}</div>
-                                <button onclick="window.open('{{ item.sourceUrl }}', '_blank')" class="block go-to-recipe arrow_right">Recipe</button>
-                            </div>
+            <div class="recommend_recipes">Search for {{ query }}</div>
+            <div class="row row-cols-3">
+                {% for item in results %}
+                    <div class="col">
+                        <div class="recipe-card">
+                            <a href="#"><div class="favorite-icon-on-recipe"></div></a>
+                            <img src="{{ item.image }}" alt="">
+                            <div class="title">{{ item.title }}</div>
+                            <button onclick="window.open('{{ item.sourceUrl }}', '_blank')" class="block go-to-recipe arrow_right">Recipe</button>
                         </div>
-                    {% empty %}
-                        <div class="no-recipe">
-                            <div class="message-404">404</div>
-                            <div class="message">We have no idea of {{ query }}</div>
-                            <div class="image"></div>
-                        </div>
-                    {% endfor %}
-                </div>
+                    </div>
+                {% endfor %}
+            </div>
         </div>
     {% elif not recommend_recipes and results %}
         <div class="limit-api-key">
@@ -52,29 +46,31 @@
         </div>
     {% else %}
         {% if random_recipes %}
-        <div class="container">
-            <div class="recommend_recipes">Recommend Recipes</div>
-            <div class="row row-cols-3">
-            {% for item in random_recipes %}
-                <div class="col">
-                    <div class="recipe-card">
-                        <a href="#"><div class="favorite-icon-on-recipe"></div></a>
-                        <img src="{{ item.image }}" alt="">
-                        <div class="title">{{ item.title }}</div>
-                        <button onclick="window.open('{{ item.sourceUrl }}', '_blank')" class="go-to-recipe arrow_right block">Recipe</button>
-                    </div>
-                </div>
-            {% endfor %}
+            <div class="container">
+                <div class="recommend_recipes">Recommend Recipes</div>
+                <div class="row row-cols-3">
+                    {% for item in random_recipes %}
+                        <div class="col">
+                            <div class="recipe-card">
+                                <a href="#"><div class="favorite-icon-on-recipe"></div></a>
+                                <img src="{{ item.image }}" alt="">
+                                <div class="title">{{ item.title }}</div>
+                                <button onclick="window.open('{{ item.sourceUrl }}', '_blank')" class="go-to-recipe arrow_right block">Recipe</button>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div> <!-- class="row row-cols-3"-->
+            </div> <!-- class="container"-->
         {% else %} <!-- 検索したレシピがなかったら404メッセージと恐竜を出す-->
-        <div class="no-recipe">
-            <div class="message-404">404</div>
-            <div class="message">We have no idea</div>
-            <div class="image"></div>
-        </div>
-        {% endif %}
+            <div class="no-recipe">
+                <div class="message-404">404</div>
+                <div class="message">We have no idea</div>
+                <div class="image"></div>
             </div>
-        </div>
+        {% endif %} <!-- {% if recommend_recipes %}-->
+        {% endif %}
     {% endif %}
+
 
 </body>
 </html>
