@@ -22,8 +22,8 @@ class SignupPage(generic.CreateView):
 
 
 @login_required(login_url='moonfish_recipe:login')
-def home(request, id):
-    food = get_object_or_404(Food, id=id)
+def home(request):
+    food = get_object_or_404(Food, id=request.user.id)
     is_favorite = False
 
     if food.favorites.filter(id=request.user.id).exists():
@@ -52,8 +52,8 @@ def home(request, id):
     return render(request, "home/home.html") # これはエラー解消のために書いたもので特に意味はないと思う（絶対にreturnが必要なため）
 
 # favorite page
-def favorite_page(request, id):
-    recipe = get_object_or_404(Food, id=id) # 値を取得している
+def favorite_page(request):
+    recipe = get_object_or_404(Food, id=request.user.id) # 値を取得している
 
     if recipe.favorites.filter(id=request.user.id).exists():
         recipe.favorites.remove(request.user)
@@ -64,4 +64,3 @@ def favorite_page(request, id):
 def favorites_list(request):
     new = Food.objects.filter(favorites=request.user)
     return render(request, 'favorite/favorite.html', {'new': new})
-

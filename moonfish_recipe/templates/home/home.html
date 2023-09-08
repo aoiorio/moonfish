@@ -12,7 +12,7 @@
     <div class="background_shape"></div>
     <div class="logo"></div>
     <button class="logout-button" onclick="location.href='{% url 'moonfish_recipe:logout' %}'">Log out</button>
-    <a href="{% url 'moonfish_recipe:favorite' %}">
+    <a href="{% url 'moonfish_recipe:favorite' Food.id %}">
         <div class="favorite-icon"></div>
     </a>
 
