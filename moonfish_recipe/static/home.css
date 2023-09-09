@@ -3,8 +3,6 @@ body{
     background-color: #D3D3D3;
 }
 
-
-
 .background_shape {
     background-image: url('./photos/home-shape.png');
     background-repeat: no-repeat;
@@ -70,7 +68,16 @@ body{
     font-weight: 520;
 }
 
+.favorite_recipes {
+    font-size: 30px;
+    font-family: sans-serif;
+    color: #000000;
+    padding: 20px;
+    font-weight: 520;
+    position: relative;
+    top: 50px;
 
+}
 .recipe-card {
     margin: 30px;
     width: 350px;
@@ -259,7 +266,13 @@ body{
     left: 15px;
 }
 
-.developing {
-    font-weight: bold;
-    font-family: sans-serif;
+.favorite-icon-on-recipe-solid{
+    background-image: url('./photos/heart-fill.png');
+    background-repeat: no-repeat;
+    width: 50px;
+    height: 50px;
+    background-size: 30px;
+    position: relative;
+    top: 70px;
+    left: 15px;
 }

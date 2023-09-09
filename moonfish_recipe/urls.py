@@ -9,6 +9,6 @@ urlpatterns = [
     path('login/', auth_views.LoginView.as_view(), name='login'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
     path('signup/', SignupPage.as_view(), name='signup'),
-    path('favorite/<int:id>/', views.favorite_page, name='favorite'),
-    # path('favorite/', views.favorites_list, name='favorite'),
+    path('favorite/<int:id>/', views.add_or_remove_favorite, name='add_or_remove_favorite'),
+    path('favorite/', views.favorites_list, name='favorite_list'),
 ]
