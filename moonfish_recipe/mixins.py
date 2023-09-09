@@ -17,6 +17,7 @@ def RedirectParams(**kwargs):
         response['Location'] += '?' + query_string
     return response
 
+# ユーザーが入れた言葉からレシピ検索をかける
 class APIMixin:
 
     def __init__(self, *args, **kwargs):
@@ -31,7 +32,8 @@ class APIMixin:
         if r.status_code == 200:
             # データベースにレシピを追加
             for recipe in r.json()["results"]:
-                if Food.objects.filter(title=recipe["title"]).exists(): # 同じtitleの要素がDBに入っていたらpassする（要素を追加しない）
+                # 同じtitleの要素がDBに入っていたらpassする（要素を追加しない）
+                if Food.objects.filter(title=recipe["title"]).exists():
                     pass
                 else:
                     foods_obj = Food(title=recipe["title"], image=recipe["image"], recipe_url=recipe["sourceUrl"])
@@ -40,20 +42,14 @@ class APIMixin:
         else:
             return None
 
-# spoonacular APIのポイントの消費が激しいのでコメントアウトしました（新しい方法を見つけました！）
-# def get_recipe_detail(self):
-#     detail_url = f"https://api.spoonacular.com/recipes/{self}/information?includeNutrition=false&apiKey={settings.API_KEY}"
-#     detail_r = requests.get(detail_url)
-#     # try:
-#     return detail_r.json()["sourceUrl"]
-#     # except:
-#     #     return None
-
+# ランダムなレシピを取得する関数
 def random_recipes(self):
-    random_recipes_url = f"https://api.spoonacular.com/recipes/random?number={self}&apiKey={settings.API_KEY}" # ランダムなレシピを取得する
+
+    random_recipes_url = f"https://api.spoonacular.com/recipes/random?number={self}&apiKey={settings.API_KEY}"
     random_recipes_r = requests.get(random_recipes_url)
+
     if random_recipes_r.status_code == 200:
-        # Foodsというデータベースにspoonacular Apiで取得したデータを格納する
+        # Foodsというデータベースにspoonacular APIで取得したデータを格納する
         for recipe in random_recipes_r.json()["recipes"]:
             if Food.objects.filter(title=recipe["title"]).exists(): # 同じtitleの要素がDBに入っていたらpassする（要素を追加しない）
                 pass

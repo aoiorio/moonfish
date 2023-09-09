@@ -12,7 +12,7 @@
     <div class="background_shape"></div>
     <div class="logo"></div>
     <button class="logout-button" onclick="location.href='{% url 'moonfish_recipe:logout' %}'">Log out</button>
-    <a href="{% url 'moonfish_recipe:favorite' %}">
+    <a href="{% url 'moonfish_recipe:favorite_list' %}">
         <div class="favorite-icon"></div>
     </a>
 
@@ -26,20 +26,23 @@
         <div class="container">
                 <h2>Search for {{ query }}</h2>
                 <div class="row row-cols-3">
-                    {% for item in results %}
-                        <div class="col">
-                            <div class="recipe-card">
-                                <img src="{{ item.image }}" alt="">
-                                <div class="title">{{ item.title }}</div>
-                                <button onclick="window.open('{{ item.sourceUrl }}', '_blank')" class="block go-to-recipe arrow_right">Recipe</button>
+                    {% for food_obj in results %}
+                        {% for item in food_obj%}
+                            <div class="col">
+                                <div class="recipe-card">
+                                    <a href="{% url 'moonfish_recipe:add_or_remove_favorite' item.id %}"><div class="favorite-icon-on-recipe"></div></a>
+                                    <img src="{{ item.image }}" alt="">
+                                    <div class="title">{{ item.title }}</div>
+                                    <button onclick="window.open('{{ item.recipe_url }}', '_blank')" class="block go-to-recipe arrow_right">Recipe</button>
+                                </div>
                             </div>
-                        </div>
-                    {% empty %}
-                        <div class="no-recipe">
-                            <div class="message-404">404</div>
-                            <div class="message">We have no idea of {{ query }}</div>
-                            <div class="image"></div>
-                        </div>
+                        {% empty %}
+                            <div class="no-recipe">
+                                <div class="message-404">404</div>
+                                <div class="message">We have no idea of {{ query }}</div>
+                                <div class="image"></div>
+                            </div>
+                        {% endfor %}
                     {% endfor %}
                 </div>
         </div>
@@ -50,26 +53,32 @@
             <a href="https://spoonacular.com/food-api/pricing" target="_blank">Are you hungry?</a>
         </div>
     {% else %}
-        {% if random_recipes %}
-        <div class="container">
-            <div class="recommend_recipes">Recommend Recipes</div>
-            <div class="row row-cols-3">
-            {% for item in random_recipes %}
-                <div class="col">
-                    <div class="recipe-card">
-                        <div class="favorite-icon-on-recipe"></div>
-                        <img src="{{ item.image }}" alt="">
-                        <div class="title">{{ item.title }}</div>
-                        <button onclick="window.open('{{ item.sourceUrl }}', '_blank')" class="go-to-recipe arrow_right block">Recipe</button>
-                    </div>
-                </div>
-            {% endfor %}
-        {% else %} <!-- 検索したレシピがなかったらメッセージと恐竜を出す-->
-        <div class="no-recipe">
-            <div class="message-404">404</div>
-            <div class="message">We have no idea</div>
-            <div class="image"></div>
-        </div>
+        {% if random_recipes_results %}
+            <div class="container">
+                <div class="recommend_recipes">Recommend Recipes</div>
+                <div class="row row-cols-3">
+                {% for food_obj in random_recipes_results %}
+                    {% for item in food_obj %}
+                        <div class="col">
+                            <div class="recipe-card">
+                                {% if is_favorite %}
+                                    <a href="{% url 'moonfish_recipe:add_or_remove_favorite' item.id %}"><div class="favorite-icon-on-recipe-solid"></div></a>
+                                {% else %}
+                                    <a href="{% url 'moonfish_recipe:add_or_remove_favorite' item.id %}"><div class="favorite-icon-on-recipe"></div></a>
+                                {% endif %}
+                                <img src="{{ item.image }}" alt="">
+                                <div class="title">{{ item.title }}</div>
+                                <button onclick="window.open('{{ item.recipe_url }}', '_blank')" class="go-to-recipe arrow_right block">Recipe</button>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+        {% else %} <!-- 検索したレシピがなかったら404メッセージと恐竜を出す-->
+            <div class="no-recipe">
+                <div class="message-404">404</div>
+                <div class="message">We have no idea</div>
+                <div class="image"></div>
+            </div>
         {% endif %}
             </div>
         </div>

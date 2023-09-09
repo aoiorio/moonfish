@@ -1,0 +1,219 @@
+body{
+    margin: 0px;
+    background-color: #c7c6c6;
+}
+
+.favorite-icon {
+    background-image: url('./photos/heart.png');
+    background-repeat: no-repeat;
+    width: 50px;
+    height: 50px;
+    background-size: 30px;
+    position: relative;
+    top: -280px;
+    right: -1250px;
+}
+
+.logo {
+    background-image: url('./photos/moonfish-logo-finish.png');
+    width: 150px;
+    height: 30px;
+    position: absolute;
+    top: 0px;
+    background-repeat: no-repeat;
+    background-size: 130px;
+    /* background-attachment: fixed; */
+    margin: 10px;
+}
+
+::placeholder {
+    font-size: 20px;
+    font-family: sans-serif;
+    color: #969697;
+}
+
+.favorite_recipes {
+    font-size: 40px;
+    font-family: sans-serif;
+    color: #000000;
+    padding: 20px;
+    font-weight: 520;
+    position: relative;
+    top: 60px;
+    text-align: center;
+    margin: 30px;
+}
+.recipe-card {
+    margin: 30px;
+    width: 350px;
+}
+
+.recipe-card img {
+    object-fit: contain;
+    width: auto;
+    height: 250px;
+    border-radius: 30px;
+    box-shadow: 3px 5px 5px rgb(202, 199, 199);
+}
+
+.recipe-card .title {
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 1.3rem;
+    text-align: center;
+    margin: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.recipe-card .go-to-recipe {
+    cursor: pointer;
+    transition: .2s cubic-bezier(0.45, 0, 0.55, 1);
+}
+
+.recipe-card .go-to-recipe {
+    border-radius: 30px;
+    border: 2px solid #A4A4A4;
+    width: 130px;
+    height: 50px;
+    font-size: 16px;
+    font-family: sans-serif;
+    font-weight: bold;
+    background-color: #A4A4A4;
+}
+
+.recipe-card .go-to-recipe:hover {
+    background-color: #D3D3D3;
+}
+
+.block{
+    display:block;
+    width:150px;
+    margin:0 auto;
+}
+
+.arrow_right {
+    position: relative;
+    padding-left: 0px;
+}
+
+.arrow_right::before {
+    content: "";
+    margin: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 20px;
+    width: 10px;    /* くの字を山なりに見た時、左側の長さ */
+    height: 10px;   /* くの字を山なりに見た時、右側の長さ */
+    border-top: 3px solid #000;     /* くの字を山なりに見た時、左側の太さと色 */
+    border-right: 3px solid #000;   /* くの字を山なりに見た時、右側の太さと色 */
+    transform: rotate(45deg);   /* くの字の向き */
+}
+
+.logout-button {
+    cursor: pointer;
+    transition: .2s cubic-bezier(0.45, 0, 0.55, 1);
+}
+
+.logout-button {
+    font-family: sans-serif;
+    background: #e7e7e7;
+    border: 1px solid #e7e7e7;
+    border-radius: 20px;
+    color: #000000;
+    display: block;
+    font-weight: 510;
+    text-align: center;
+    position: absolute;
+    top: 20px;
+    right: 15px;
+    width: 100px;
+    height: 30px;
+    font-size: 15px;
+}
+
+.logout-button:hover {
+    background: #D3D3D3;
+}
+
+.limit-api-key {
+    width: auto;
+    height: 600px;
+    text-align: center;
+}
+
+.limit-api-key .image{
+    background-image: url('./photos/moonfish-people-blue.PNG');
+    background-repeat: no-repeat;
+    width: auto;
+    height: 500px;
+    background-size: 700px;
+    background-position: center;
+}
+
+.limit-api-key .message {
+    font-family: sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.limit-api-key a {
+    text-decoration: none;
+    color: #212121;
+}
+
+.limit-api-key a:hover {
+    text-decoration: none;
+    color: #5e5e5e;
+}
+
+.no-recipe {
+    width: auto;
+    height: 600px;
+    text-align: center;
+}
+
+.no-recipe .image {
+    background-image: url('./photos/moonfish-people.PNG');
+    background-repeat: no-repeat;
+    width: auto;
+    height: 500px;
+    background-size: 700px;
+    background-position: center;
+}
+
+.no-recipe .message {
+    font-family: sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.no-recipe .message-404 {
+    font-family: sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.favorite-icon-on-recipe{
+    background-image: url('./photos/heart.png');
+    background-repeat: no-repeat;
+    width: 50px;
+    height: 50px;
+    background-size: 30px;
+    position: relative;
+    top: 70px;
+    left: 15px;
+}
+
+.favorite-icon-on-recipe-solid{
+    background-image: url('./photos/heart-fill.png');
+    background-repeat: no-repeat;
+    width: 50px;
+    height: 50px;
+    background-size: 30px;
+    position: relative;
+    top: 70px;
+    left: 15px;
+}

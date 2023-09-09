@@ -3,14 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/favorite.css">
     <title>moonfish</title>
 </head>
-<body>
-    <h1 class="developing">Developing favorite page now...</h1>
-    <h2 class="developing">Please wait</h2>
-    {% for favorite_recipe in favorite_recipes %}
-        <h1>{{ favorite_recipe.title }}</h1>
-        <h2>{{ favorite_recipe.is_favorite }}</h2>
-    {% endfor %}
+<body bgcolor="#818e91">
+    <a href="{% url 'moonfish_recipe:home'%}"><div class="logo"></div></a>
+
+    <button class="logout-button" onclick="location.href='{% url 'moonfish_recipe:logout' %}'">Log out</button>
+
+    {% if user_favorite_list %}
+    <div class="container">
+        <div class="favorite_recipes">Favorite Recipes</div>
+        <div class="row row-cols-3">
+            {% for favorite in user_favorite_list %}
+                <div class="col">
+                    <div class="recipe-card">
+                        {% if is_favorite %}
+                            <a href="{% url 'moonfish_recipe:add_or_remove_favorite' favorite.id %}"><div class="favorite-icon-on-recipe-solid"></div></a>
+                        {% else %}
+                            <a href="{% url 'moonfish_recipe:add_or_remove_favorite' favorite.id %}"><div class="favorite-icon-on-recipe"></div></a>
+                        {% endif %}
+                        <img src="{{ favorite.image }}" alt="">
+                        <div class="title">{{ favorite.title }}</div>
+                        <button onclick="window.open('{{ favorite.recipe_url }}', '_blank')" class="go-to-recipe arrow_right block">Recipe</button>
+                    </div>
+                </div>
+            {% endfor %}
+    {% else %}
+        <div class="favorite_recipes">You don't have any favorite recipes, Let's add!!</div>
+    {% endif %}
 </body>
 </html>
