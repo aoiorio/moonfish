@@ -54,6 +54,10 @@ def random_recipes(self):
             if Food.objects.filter(title=recipe["title"]).exists(): # 同じtitleの要素がDBに入っていたらpassする（要素を追加しない）
                 pass
             else:
-                foods_obj = Food(title=recipe["title"], image=recipe["image"], recipe_url=recipe["sourceUrl"])
-                foods_obj.save()
+                try:
+                    foods_obj = Food(title=recipe["title"], image=recipe["image"], recipe_url=recipe["sourceUrl"])
+                    foods_obj.save()
+                except Exception:
+                    foods_obj = Food(title=recipe["title"], image=recipe["image"], recipe_url=recipe["sourceUrl"])
+                    foods_obj.save()
         return random_recipes_r.json()["recipes"]
